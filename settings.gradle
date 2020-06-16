@@ -1,0 +1,2 @@
+rootProject.name='ListarCelulares'
+include ':app'
