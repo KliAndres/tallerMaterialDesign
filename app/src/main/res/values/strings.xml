@@ -18,4 +18,5 @@
     <string name="guardar">Guardar</string>
     <string name="limpiar">Limpiar</string>
     <string name="detallecelular">Detalle del Equipo</string>
+    <string name="mensajeGuardarC">Celuar Guardado correctamente</string>
 </resources>
