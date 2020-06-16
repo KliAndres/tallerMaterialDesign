@@ -29,7 +29,7 @@ public class AgregarCelular extends AppCompatActivity {
         ram = findViewById(R.id.txtRam);
 
         fotos = new ArrayList<>();
-        fotos.add(R.drawable.Apple);
+        fotos.add(R.drawable.apple);
         fotos.add(R.drawable.huawei);
         fotos.add(R.drawable.samsung);
         fotos.add(R.drawable.sony);
