@@ -31,6 +31,7 @@ public class AgregarCelular extends AppCompatActivity {
     private EditText marca, modelo, imei, memoria, ram;
     private StorageReference storageReference;
     private Uri uri;
+    //private Object[] imeia =new Object[15];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,8 +73,8 @@ public class AgregarCelular extends AppCompatActivity {
             subir_foto(id, fot);
 
             AlertDialog.Builder builder =new AlertDialog.Builder(this);
-            builder.setTitle("Información Correcta");
-            builder.setMessage("¿La información es Corercta?");
+            builder.setTitle(R.string.informacion_titutlo);
+            builder.setMessage(R.string.informacion_correcta);
             pos=getString(R.string.si);
             neg=getString(R.string.no);
 
@@ -101,7 +102,6 @@ public class AgregarCelular extends AppCompatActivity {
 
     public boolean validar(){
         String e_marca, e_modelo, e_imei, e_memoria, e_ram, e_imei_digitos;
-
         e_marca=getString(R.string.error_marca);
         e_modelo=getString(R.string.error_modelo);
         e_imei=getString(R.string.error_imei);
@@ -134,6 +134,11 @@ public class AgregarCelular extends AppCompatActivity {
             imei.requestFocus();
             return false;
         }
+        //int im=Integer.parseInt(imei.getText().toString());
+        //for (int i = 0; i < imeia.length; i++){
+            //if (imei.get(i).getImei.equals(c.getImei())){
+          //  }
+        //}
         return true;
     }
 
