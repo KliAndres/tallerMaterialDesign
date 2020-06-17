@@ -52,10 +52,10 @@ public class AgregarCelular extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference();
     }
 
-    public void guardar(View v) {
-        String mar, mod, ime, mem, ra, id;
+    public void guardar(final View v) {
+        String mar, mod, ime, mem, ra, id, pos, neg;
         int fot;
-        Celular celular;
+        final Celular celular;
         InputMethodManager imp = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
         if (validar()) {
@@ -68,24 +68,46 @@ public class AgregarCelular extends AppCompatActivity {
             id = Datos.getId();
 
             celular = new Celular(mar, mod, ime, mem, ra, fot, id);
-            celular.guardar();
+            //celular.guardar();
             subir_foto(id, fot);
-            limpiar();
-            imp.hideSoftInputFromWindow(imei.getWindowToken(), 0);
 
-            Snackbar.make(v, getString(R.string.mensajeGuardarC), Snackbar.LENGTH_LONG).show();
+            AlertDialog.Builder builder =new AlertDialog.Builder(this);
+            builder.setTitle("Información Correcta");
+            builder.setMessage("¿La información es Corercta?");
+            pos=getString(R.string.si);
+            neg=getString(R.string.no);
+
+            builder.setPositiveButton(pos, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    celular.guardar();
+                    Snackbar.make(v, getString(R.string.mensajeGuardarC), Snackbar.LENGTH_LONG).show();
+                    limpiar(v);
+
+                }
+            });
+
+            builder.setNegativeButton(neg, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    limpiar(v);
+                }
+            });
+            imp.hideSoftInputFromWindow(imei.getWindowToken(), 0);
+            AlertDialog dialog = builder.create();
+            dialog.show();
         }
     }
 
     public boolean validar(){
         String e_marca, e_modelo, e_imei, e_memoria, e_ram, e_imei_digitos;
 
-        e_marca="Escriba la marca";
-        e_modelo="Esciba el modelo";
-        e_imei="Escriba los 15 digitos del IMEI";
-        e_memoria="Escriba el tamaño de memoria";
-        e_ram ="Escriba el tamaño de RAM";
-        e_imei_digitos="Deben ser 15 caracteres";
+        e_marca=getString(R.string.error_marca);
+        e_modelo=getString(R.string.error_modelo);
+        e_imei=getString(R.string.error_imei);
+        e_memoria=getString(R.string.error_memoria);
+        e_ram =getString(R.string.error_ram);
+        e_imei_digitos=getString(R.string.error_digitos_imei);
 
         if (marca.getText().toString().isEmpty()){
             marca.setError(e_marca);

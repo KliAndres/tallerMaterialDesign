@@ -25,4 +25,10 @@
     <string name="si">Si</string>
     <string name="no">No</string>
     <string name="seguro_eliminar">¿Estas seguro de eliminar el equipo?</string>
+    <string name="error_marca">Escriba la marca</string>
+    <string name="error_modelo">Esciba el modelo</string>
+    <string name="error_imei">Escriba los 15 digitos del IMEI</string>
+    <string name="error_memoria">Escriba el tamaño de memoria</string>
+    <string name="error_ram">Escriba el tamaño de RAM</string>
+    <string name="error_digitos_imei">Deben ser 15 caracteres</string>
 </resources>
