@@ -47,4 +47,6 @@ public class Celular {
     public void guardar(){
         Datos.guardar(this);
     }
+
+    public void eliminar(){Datos.eliminar(this);}
 }

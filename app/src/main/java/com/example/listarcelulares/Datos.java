@@ -9,7 +9,14 @@ public class Datos {
         celulares.add(c);
     }
 
-    public static ArrayList<Celular> obtener(){
-        return celulares;
+    public static ArrayList<Celular> obtener(){ return celulares; }
+
+    public static void eliminar(Celular c){
+        for (int i=0; i<celulares.size(); i++){
+            if (celulares.get(i).getImei().equals(c.getImei())){
+                celulares.remove(i);
+                break;
+            }
+        }
     }
 }

@@ -21,4 +21,8 @@
     <string name="mensajeGuardarC">Celuar Guardado correctamente</string>
     <string name="detalleTitulo">Detalle del Equipo</string>
     <string name="etiqueta_boton_eliminar">Eliminar</string>
+    <string name="eliminar_equipo">Eliminar Equipo</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+    <string name="seguro_eliminar">¿Estas seguro de eliminar el equipo?</string>
 </resources>
