@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements Adaptador_Celular
         Intent intent;
         intent=new Intent(MainActivity.this, AgregarCelular.class);
         startActivity(intent);
-        finish();
+        //finish();
     }
 
 
@@ -96,11 +96,11 @@ public class MainActivity extends AppCompatActivity implements Adaptador_Celular
         bundle.putString("Memoria", c.getMemoria());
         bundle.putString("RAM", c.getRam());
 
-        bundle.putInt("Foto", c.getFoto());
+        bundle.putString("id", c.getId());
 
         intent =new Intent(MainActivity.this, DetalleCelular.class);
         intent.putExtra("datos", bundle);
         startActivity(intent);
-        finish();
+        //finish();
     }
 }

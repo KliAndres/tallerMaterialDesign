@@ -1,5 +1,6 @@
 package com.example.listarcelulares;
 
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -29,9 +35,19 @@ public class Adaptador_Celular extends RecyclerView.Adapter<Adaptador_Celular.Ce
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CelularViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final CelularViewHolder holder, int position) {
         final Celular c = celulares.get(position);
-        holder.foto.setImageResource(c.getFoto());
+
+        StorageReference storageReference;
+        storageReference = FirebaseStorage.getInstance().getReference();
+
+        storageReference.child(c.getId()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(holder.foto);
+            }
+        });
+
         holder.marca.setText(c.getMarca());
         holder.modelo.setText(c.getModelo());
         holder.imei.setText(c.getImei());

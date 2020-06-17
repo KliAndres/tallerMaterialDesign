@@ -5,10 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 public class DetalleCelular extends AppCompatActivity {
     private Celular c;
@@ -19,12 +25,13 @@ public class DetalleCelular extends AppCompatActivity {
         setContentView(R.layout.activity_detalle_celular);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ImageView foto;
+        final ImageView foto;
         TextView marca, modelo, imei, memoria, ram;
         Bundle bundle;
         Intent intent;
-        String mar, mod, ime, mem, ra;
+        String id, mar, mod, ime, mem, ra;
         int fot;
+        StorageReference storageReference;
 
          foto =findViewById(R.id.imgFotoDetalle);
          marca = findViewById(R.id.lblMarcaDetalle);
@@ -36,21 +43,28 @@ public class DetalleCelular extends AppCompatActivity {
          intent = getIntent();
          bundle = intent.getBundleExtra("datos");
 
-         fot = bundle.getInt("Foto");
+         id = bundle.getString("id");
          mar=bundle.getString("Marca");
          mod=bundle.getString("Modelo");
          ime=bundle.getString("Imei");
          mem=bundle.getString("Memoria");
          ra=bundle.getString("RAM");
 
-         foto.setImageResource(fot);
+         storageReference = FirebaseStorage.getInstance().getReference();
+         storageReference.child(id).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+             @Override
+             public void onSuccess(Uri uri) {
+                 Picasso.get().load(uri).into(foto);
+             }
+         });
+         //foto.setImageResource(fot);
          marca.setText(mar);
          modelo.setText(mod);
          imei.setText(ime);
          memoria.setText(mem);
          ram.setText(ra);
 
-         c= new Celular(mar, mod, ime, mem, ra, fot);
+         c= new Celular(mar, mod, ime, mem, ra, 0, id);
     }
     public void onBackPressed(){
         finish();

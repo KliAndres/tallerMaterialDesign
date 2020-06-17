@@ -2,12 +2,15 @@ package com.example.listarcelulares;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
 public class Datos {
     private static String db ="Celulares";
     private static DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference();
+    private static StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     private static ArrayList<Celular> celulares = new ArrayList();
 
     public static String getId(){
@@ -25,11 +28,7 @@ public class Datos {
     public static ArrayList<Celular> obtener(){ return celulares; }
 
     public static void eliminar(Celular c){
-        for (int i=0; i<celulares.size(); i++){
-            if (celulares.get(i).getImei().equals(c.getImei())){
-                celulares.remove(i);
-                break;
-            }
-        }
+        databaseReference.child(db).child(c.getId()).removeValue();
+        storageReference.child(c.getId()).delete();
     }
 }
