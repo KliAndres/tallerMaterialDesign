@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="10sp"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -13,11 +14,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imgFoto"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                app:srcCompat="@drawable/samsung" />
+                android:src="@drawable/sony" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -25,26 +26,63 @@
                 android:layout_marginLeft="10sp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/lblMarca"
+                <TableLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    android:textSize="24sp" />
+                    android:layout_height="match_parent"
+                    android:stretchColumns="*">
 
-                <TextView
-                    android:id="@+id/lblModelo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    android:textSize="24sp" />
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/lblImei"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    android:textSize="24sp" />
+                        <TextView
+                            android:id="@+id/lblMarca"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/lblModelo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:textSize="24sp" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/lblImei"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:textSize="24sp" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/lblMemoria"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/lblRam"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp" />
+                    </TableRow>
+
+                </TableLayout>
+
             </LinearLayout>
 
         </LinearLayout>

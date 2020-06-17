@@ -32,6 +32,8 @@ public class Adaptador_Celular extends RecyclerView.Adapter<Adaptador_Celular.Ce
         holder.marca.setText(c.getMarca());
         holder.modelo.setText(c.getModelo());
         holder.imei.setText(c.getImei());
+        holder.memoria.setText(c.getMemoria());
+        holder.ram.setText(c.getRam());
     }
 
     @Override
@@ -44,6 +46,8 @@ public class Adaptador_Celular extends RecyclerView.Adapter<Adaptador_Celular.Ce
         private TextView marca;
         private TextView modelo;
         private TextView imei;
+        private TextView memoria;
+        private TextView ram;
         private View v;
 
         public CelularViewHolder(View itemView){
@@ -53,6 +57,8 @@ public class Adaptador_Celular extends RecyclerView.Adapter<Adaptador_Celular.Ce
             marca = v.findViewById(R.id.lblMarca);
             modelo = v.findViewById(R.id.lblModelo);
             imei = v.findViewById(R.id.lblImei);
+            memoria = v.findViewById(R.id.lblMemoria);
+            ram = v.findViewById(R.id.lblRam);
 
         }
     }
