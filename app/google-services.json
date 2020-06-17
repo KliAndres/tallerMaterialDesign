@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "99469623962",
+    "firebase_url": "https://cellphoneregister-26f26.firebaseio.com",
+    "project_id": "cellphoneregister-26f26",
+    "storage_bucket": "cellphoneregister-26f26.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99469623962:android:79a6fb656f5fceae2c1523",
+        "android_client_info": {
+          "package_name": "com.example.listarcelulares"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99469623962-tqmd54omb4u39ba0oda0n9hpc2f10oq9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.listarcelulares",
+            "certificate_hash": "ea039bb347e897b65e27d2fc41ecc4262f81ab11"
+          }
+        },
+        {
+          "client_id": "99469623962-jfc2h2065tfpmb3oup3ut49hbbq269dn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB20fYK027XqtIRTVZkidULdAxRtSGyS2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99469623962-jfc2h2065tfpmb3oup3ut49hbbq269dn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

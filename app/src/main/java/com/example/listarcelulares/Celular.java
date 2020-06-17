@@ -7,6 +7,7 @@ public class Celular {
     private String memoria;
     private String ram;
     private int foto;
+    private String id;
 
     public Celular(String marca, String modelo, String imei, String memoria, String ram, int foto){
         this.marca = marca;
@@ -16,9 +17,20 @@ public class Celular {
         this.ram = ram;
         this.foto =foto;
     }
+    public Celular(String marca, String modelo, String imei, String memoria, String ram, int foto, String id){
+        this.marca = marca;
+        this.modelo =modelo;
+        this.imei = imei;
+        this.memoria = memoria;
+        this.ram = ram;
+        this.foto =foto;
+        this.id = id;
+    }
     public Celular(){
 
     }
+
+    public String getId() {return id; }
 
     public String getMarca() {return marca;}
 

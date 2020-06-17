@@ -37,7 +37,7 @@ public class AgregarCelular extends AppCompatActivity {
     }
 
     public void guardar(View v){
-        String mar, mod, ime,mem,ra;
+        String mar, mod, ime,mem,ra, id;
         int fot;
         Celular celular;
 
@@ -49,8 +49,9 @@ public class AgregarCelular extends AppCompatActivity {
         mem = memoria.getText().toString();
         ra = ram.getText().toString();
         fot = foto_aleatoria();
+        id = Datos.getId();
 
-        celular = new Celular(mar, mod, ime, mem, ra, fot);
+        celular = new Celular(mar, mod, ime, mem, ra, fot, id);
         celular.guardar();
         limpiar();
         imp.hideSoftInputFromWindow(imei.getWindowToken(), 0);
