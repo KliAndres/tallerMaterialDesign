@@ -22,6 +22,7 @@ public class AgregarCelular extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_celular);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         marca = findViewById(R.id.txtMarca);
         modelo =findViewById(R.id.txtModelo);
         imei = findViewById(R.id.txtImei);

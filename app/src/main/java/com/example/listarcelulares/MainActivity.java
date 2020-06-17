@@ -17,7 +17,7 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements Adaptador_Celular.OnCelularClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         FloatingActionButton fab;
         RecyclerView lstCelulares;
         ArrayList<Celular> celulares;
@@ -34,7 +37,7 @@ public class MainActivity extends AppCompatActivity{
         lstCelulares = findViewById(R.id.lstCelulares);
         celulares = Datos.obtener();
         llm = new LinearLayoutManager(this);
-        adaptador = new Adaptador_Celular(celulares);
+        adaptador = new Adaptador_Celular(celulares, this);
 
         llm.setOrientation(RecyclerView.VERTICAL);
         lstCelulares.setLayoutManager(llm);
@@ -43,12 +46,30 @@ public class MainActivity extends AppCompatActivity{
 
     }
     public void agregar(View v){
-        Intent i;
-        i=new Intent(MainActivity.this, AgregarCelular.class);
-        startActivity(i);
+        Intent intent;
+        intent=new Intent(MainActivity.this, AgregarCelular.class);
+        startActivity(intent);
         finish();
     }
 
 
+    @Override
+    public void OnCelularClick(Celular c) {
+        Intent intent;
+        Bundle bundle;
 
+        bundle = new Bundle();
+        bundle.putString("Marca", c.getMarca());
+        bundle.putString("Modelo", c.getModelo());
+        bundle.putString("Imei", c.getImei());
+        bundle.putString("Memoria", c.getMemoria());
+        bundle.putString("RAM", c.getRam());
+
+        bundle.putInt("Foto", c.getFoto());
+
+        intent =new Intent(MainActivity.this, DetalleCelular.class);
+        intent.putExtra("datos", bundle);
+        startActivity(intent);
+        finish();
+    }
 }
