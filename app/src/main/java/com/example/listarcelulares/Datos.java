@@ -18,6 +18,10 @@ public class Datos {
         databaseReference.child(db).child(c.getId()).setValue(c);
     }
 
+    public static void setCelulares(ArrayList<Celular> celulares){
+        celulares = celulares;
+    }
+
     public static ArrayList<Celular> obtener(){ return celulares; }
 
     public static void eliminar(Celular c){
