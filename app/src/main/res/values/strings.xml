@@ -34,4 +34,5 @@
     <string name="informacion_titutlo">Información Correcta</string>
     <string name="informacion_correcta">¿La información es Corercta?</string>
     <string name="entrar">Iniciar</string>
+    <string name="celularesRegistrados">Celulares Registrados</string>
 </resources>
